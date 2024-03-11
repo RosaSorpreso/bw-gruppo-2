@@ -35,6 +35,9 @@
 
 .progress-bar {
   display: inline-block;
+  height: 10px;
+  width: 100px;
+  border: 2px solid gray;
 }
 
 /*# sourceMappingURL=style.css.map */
