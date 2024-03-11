@@ -40,4 +40,8 @@
   border: 2px solid gray;
 }
 
+input[type=range] {
+  accent-color: white;
+}
+
 /*# sourceMappingURL=style.css.map */
