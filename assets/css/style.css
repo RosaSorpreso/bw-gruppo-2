@@ -5,10 +5,14 @@
   border-radius: 50%;
   width: 4%;
 }
+.central-part i {
+  font-size: 20px;
+}
 
 .container {
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .left-bar {
