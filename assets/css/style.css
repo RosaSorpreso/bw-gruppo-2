@@ -57,4 +57,14 @@ input[type=range] {
   font-size: 3em;
 }
 
+.custom {
+  border-radius: 30px;
+  font-size: 0.8em;
+}
+
+.profile-picture, #img-bar {
+  width: 25px;
+  height: 25px;
+}
+
 /*# sourceMappingURL=style.css.map */
