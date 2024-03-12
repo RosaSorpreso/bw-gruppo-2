@@ -2,7 +2,7 @@
   max-height: 70%;
 }
 
-.profile-picture, .miniature, .profile-picture-sm, #img-bar {
+.profile-picture, .profile-picture-l, .miniature, .profile-picture-sm, #img-bar {
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -75,6 +75,23 @@ input[type=range] {
 
 .miniature {
   border-radius: 0;
+}
+
+.profile-picture-l {
+  width: 50px;
+  height: 50px;
+}
+
+.my-font-size-sm {
+  font-size: 0.5em;
+}
+
+.my-badge {
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 4px;
+  padding-top: 1px;
+  margin-left: -16px;
 }
 
 /*# sourceMappingURL=style.css.map */
