@@ -4,15 +4,20 @@
 }
 .central-part .rounded-circle {
   border-radius: 50%;
-  width: 4%;
+  width: 8%;
+}
+.central-part .icona {
+  background-color: rgb(32, 32, 32);
+  border-radius: 50%;
 }
 .central-part i {
   font-size: 20px;
+  padding: 8px;
 }
 
 .rettangolo {
-  background-color: red;
-  height: 300px;
+  background: linear-gradient(to right, #010101, #1d1d1d);
+  height: 250px;
   color: black;
   display: flex;
   align-items: center;
@@ -38,6 +43,7 @@
 .rettangolo .album .play button {
   border-radius: 20px;
   padding: 5px 20px 5px 20px;
+  margin-bottom: 10px;
 }
 
 .imgBuonasera {
@@ -61,6 +67,12 @@
 }
 .otherPlaylist .card {
   background-color: #171717;
+}
+.otherPlaylist .card h5 {
+  color: white;
+}
+.otherPlaylist .card p {
+  color: gray;
 }
 
 .left-bar {

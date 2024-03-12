@@ -3,16 +3,20 @@
     padding-top: 10px;
     .rounded-circle{
         border-radius: 50%;
-        width: 4%;
+        width: 8%;
+    }
+    .icona{
+        background-color: rgb(32, 32, 32);
+        border-radius: 50%;
     }
     i{
         font-size: 20px;
+        padding: 8px;
     }
 }
 .rettangolo{
-    // background: linear-gradient(to right, rgb(17, 10, 10), rgb(89, 81, 81)) ;
-    background-color: red;
-    height: 300px;
+    background: linear-gradient(to right, #010101, #1d1d1d) ;
+    height: 250px;
     color: black;
     display: flex;
     align-items: center;
@@ -37,6 +41,7 @@
             button{
                 border-radius: 20px;
                 padding: 5px 20px 5px 20px;
+                margin-bottom: 10px;
             }
         }
     }
@@ -60,5 +65,11 @@
     width: calc(100% / 5);
     .card{
         background-color: #171717;
+    }
+    .card h5{
+        color: white;
+    }
+    .card p{
+        color: gray;
     }
 }
