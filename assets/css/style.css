@@ -80,6 +80,11 @@
   color: gray;
 }
 
+@media (max-width: 992px) {
+  .d-sm-block {
+    display: none;
+  }
+}
 .left-bar {
   max-height: 70%;
 }
