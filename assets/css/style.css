@@ -91,7 +91,8 @@ input[type=range] {
   padding-left: 5px;
   padding-bottom: 4px;
   padding-top: 1px;
-  margin-left: -16px;
+  left: 67%;
+  bottom: 20%;
 }
 
 /*# sourceMappingURL=style.css.map */
