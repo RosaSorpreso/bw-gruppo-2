@@ -48,9 +48,12 @@
 }
 
 .imgBuonasera{
-    width: 120px;
+    margin-left: -20px;
 }
 .playlistImg{
+    img{
+        width: 80%;
+    }
     align-items: center;
     p{
         padding-left:10px;
@@ -58,8 +61,10 @@
 }
 
 .homepagePlaylist{
-    width: 33%;
+    width: 30%;
     background-color: #2D2D2D;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 .otherPlaylist{
     width: calc(100% / 5);
