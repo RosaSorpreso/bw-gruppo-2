@@ -85,10 +85,10 @@
                     </div>
                     
                     <div class="m-3 mt-5 d-flex">
-                        <img src="./assets/imgs/main/image-15.jpg" alt="">
+                        <img id="cover-album" src="./assets/imgs/main/image-15.jpg" alt="">
                         <div class="d-flex flex-column justify-content-end ms-3">
-                            <span class="fs-5">Album</span>
-                            <h1 class="display-3 fw-bold">Titolo Album</h1>
+                            <span class="fs-5 type">Album</span>
+                            <h1 class="display-3 fw-bold album-title">Titolo Album</h1>
                             <div class="d-flex">
                                 <img src="./assets/imgs/search/image-5.jpg" alt="" id="artist-thumbnail">
                                 <a href="" id="artist-name" class="mx-2 text-decoration-none text-white">Nome artista</a>
@@ -120,59 +120,18 @@
                         <div class="col-2 text-end">RIPRODUZIONI</div>
                         <div class="col-3 text-end">TIME</div>
                     </div>
-                    <div class="row align-items-center pt-2">
-                        <div class="col-1 text-center">1</div>
-                        <div class="col-6">
-                            <div class="fw-semibold song-title">Canzone</div>
-                            <div class="gray-text">Artista</div>
-                        </div>
-                        <div class="col-2 text-end">123456</div>
-                        <div class="col-3 text-end">04:40</div>
-                    </div>
-                    <div class="row align-items-center pt-2">
-                        <div class="col-1 text-center">1</div>
-                        <div class="col-6">
-                            <div class="fw-semibold song-title">Canzone</div>
-                            <div class="gray-text">Artista</div>
-                        </div>
-                        <div class="col-2 text-end">123456</div>
-                        <div class="col-3 text-end">04:40</div>
-                    </div>
-                    <div class="row align-items-center pt-2">
-                        <div class="col-1 text-center">1</div>
-                        <div class="col-6">
-                            <div class="fw-semibold song-title">Canzone</div>
-                            <div class="gray-text">Artista</div>
-                        </div>
-                        <div class="col-2 text-end">123456</div>
-                        <div class="col-3 text-end">04:40</div>
-                    </div>
-                    <div class="row align-items-center pt-2">
-                        <div class="col-1 text-center">1</div>
-                        <div class="col-6">
-                            <div class="fw-semibold song-title">Canzone</div>
-                            <div class="gray-text">Artista</div>
-                        </div>
-                        <div class="col-2 text-end">123456</div>
-                        <div class="col-3 text-end">04:40</div>
-                    </div>
-                    <div class="row align-items-center pt-2">
-                        <div class="col-1 text-center">1</div>
-                        <div class="col-6">
-                            <div class="fw-semibold song-title">Canzone</div>
-                            <div class="gray-text">Artista</div>
-                        </div>
-                        <div class="col-2 text-end">123456</div>
-                        <div class="col-3 text-end">04:40</div>
-                    </div>
-                    <div class="row align-items-center pt-2">
-                        <div class="col-1 text-center">1</div>
-                        <div class="col-6">
-                            <div class="fw-semibold song-title">Canzone</div>
-                            <div class="gray-text">Artista</div>
-                        </div>
-                        <div class="col-2 text-end">123456</div>
-                        <div class="col-3 text-end">04:40</div>
+                    <div class="target">
+                        <template id="song">
+                            <div class="row align-items-center pt-2">
+                                <div class="col-1 text-center number"></div>
+                                <div class="col-6">
+                                    <div class="fw-semibold song-title">Canzone</div>
+                                    <div class="gray-text song-artist">Artista</div>
+                                </div>
+                                <div class="col-2 text-end streaming">123456</div>
+                                <div class="col-3 text-end song-duration">04:40</div>
+                            </div>
+                        </template>
                     </div>
                 </div>
 
