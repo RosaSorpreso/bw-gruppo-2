@@ -1,0 +1,11 @@
+{
+  "name": "bw-gruppo-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "sass assets/scss/style.scss assets/css/style.css -w"
+  },
+  "author": "",
+  "license": "ISC"
+}
