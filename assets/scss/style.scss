@@ -1,6 +1,9 @@
-$secondary:#adb5bd;
 
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "homepage";
+
+@import "style-artist";
+
+@import "style-album";
 
 .left-bar {
     max-height: 70%;
@@ -48,6 +51,3 @@ input[type="range"] {
     accent-color: white;
 }
 
-@import "homepage";
-
-@import "style-artist"
