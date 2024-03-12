@@ -1,3 +1,7 @@
+$secondary:#adb5bd;
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
 .left-bar {
     max-height: 70%;
 }
@@ -42,4 +46,20 @@
 }
 input[type="range"] {
     accent-color: white;
+}
+
+#artist-thumbnail {
+    width:24px;
+    border-radius:50%
+}
+
+.background-gradient {
+    background: linear-gradient(#dbc236, #000000);
+}
+
+.dropdown-item {
+    color: white;
+    &:hover {
+        color: #000000;
+    }
 }
