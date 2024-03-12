@@ -11896,7 +11896,7 @@ input[type=range] {
 }
 
 .background-gradient {
-  background: linear-gradient(#dbc236, #000000);
+  background: linear-gradient(#dbc236, 25%, #000000);
 }
 
 .dropdown-item {
@@ -11904,6 +11904,46 @@ input[type=range] {
 }
 .dropdown-item:hover {
   color: #000000;
+}
+
+.height-10 {
+  height: 10vh;
+}
+
+.height-20 {
+  height: 20vh;
+}
+
+.height-30 {
+  height: 30vh;
+}
+
+.height-40 {
+  height: 40vh;
+}
+
+.height-50 {
+  height: 50vh;
+}
+
+.height-60 {
+  height: 60vh;
+}
+
+.height-70 {
+  height: 70vh;
+}
+
+.height-80 {
+  height: 80vh;
+}
+
+.height-90 {
+  height: 90vh;
+}
+
+.height-100 {
+  height: 100vh;
 }
 
 /*# sourceMappingURL=style.css.map */
