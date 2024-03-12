@@ -1,5 +1,6 @@
 .center{
-    background-color: #212529;
+    background: rgb(61,60,60);
+background: linear-gradient(180deg, rgb(45, 44, 44) 11%, rgba(18,18,18,1) 45%);
 }
 
 .bg-img{
@@ -18,4 +19,14 @@
 .profile-picture {
     width: 25px;
     height: 25px;
+}
+
+.btn-following{
+    font-size: 0.4em;
+    font-weight: bold;
+}
+
+.miniature{
+    width: 30px;
+    height: 30px;
 }

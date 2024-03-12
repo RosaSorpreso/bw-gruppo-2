@@ -45,7 +45,8 @@ input[type=range] {
 }
 
 .center {
-  background-color: #212529;
+  background: rgb(61, 60, 60);
+  background: linear-gradient(180deg, rgb(45, 44, 44) 11%, rgb(18, 18, 18) 45%);
 }
 
 .bg-img {
@@ -65,6 +66,16 @@ input[type=range] {
 .profile-picture, #img-bar {
   width: 25px;
   height: 25px;
+}
+
+.btn-following {
+  font-size: 0.4em;
+  font-weight: bold;
+}
+
+.miniature {
+  width: 30px;
+  height: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */
