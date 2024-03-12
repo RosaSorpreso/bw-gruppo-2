@@ -1,5 +1,6 @@
 .central-part {
   background: linear-gradient(to bottom, gray, rgb(0, 0, 0));
+  padding-top: 10px;
 }
 .central-part .rounded-circle {
   border-radius: 50%;
@@ -25,6 +26,29 @@
 .rettangolo .album {
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
+}
+.rettangolo .album .nascondiAnunnci {
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+.rettangolo .album .play {
+  gap: 10px;
+}
+.rettangolo .album .play button {
+  border-radius: 20px;
+  padding: 5px 20px 5px 20px;
+}
+
+.imgBuonasera {
+  width: 100px;
+}
+
+.ciao {
+  align-items: center;
+}
+.ciao p {
+  padding-left: 10px;
 }
 
 .left-bar {

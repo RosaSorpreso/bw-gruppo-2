@@ -1,5 +1,6 @@
 .central-part{
     background:linear-gradient(to bottom, gray, rgb(0, 0, 0));
+    padding-top: 10px;
     .rounded-circle{
         border-radius: 50%;
         width: 4%;
@@ -25,6 +26,28 @@
     .album{
         display: flex;
         align-items: flex-start;
-        // justify-content: space-between;
+        flex-direction: column;
+        .nascondiAnunnci{
+            justify-content: flex-end;
+            margin-right: 50px;
+        }
+
+        .play{
+            gap: 10px;
+            button{
+                border-radius: 20px;
+                padding: 5px 20px 5px 20px;
+            }
+        }
+    }
+}
+
+.imgBuonasera{
+    width: 100px;
+}
+.ciao{
+    align-items: center;
+    p{
+        padding-left:10px;
     }
 }
