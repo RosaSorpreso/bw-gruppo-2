@@ -1,7 +1,7 @@
 .central-part {
-  background-color: red;
+  background: linear-gradient(to bottom, gray, rgb(0, 0, 0));
 }
-.central-part img {
+.central-part .rounded-circle {
   border-radius: 50%;
   width: 4%;
 }
@@ -9,14 +9,22 @@
   font-size: 20px;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
+.rettangolo {
+  background-color: red;
+  height: 300px;
+  color: black;
+  margin-top: 50px;
+}
+.rettangolo .square {
+  width: 70%;
 }
 
 .left-bar {
   max-height: 70%;
+}
+
+.container-fluid {
+  height: 100vh;
 }
 
 .profile-picture, #img-bar {

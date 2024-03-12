@@ -1,6 +1,6 @@
 .central-part{
-    background-color: red;
-    img{
+    background:linear-gradient(to bottom, gray, rgb(0, 0, 0));
+    .rounded-circle{
         border-radius: 50%;
         width: 4%;
     }
@@ -9,7 +9,12 @@
     }
 }
 .rettangolo{
-    background-color: black !important;
-    height: 150px;
+    // background: linear-gradient(to right, rgb(17, 10, 10), rgb(89, 81, 81)) ;
+    background-color: red;
+    height: 300px;
     color: black;
+    margin-top: 50px;
+    .square{
+        width: 70%;
+    }
 }
