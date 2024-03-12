@@ -41,14 +41,18 @@
 }
 
 .imgBuonasera {
-  width: 100px;
+  width: 120px;
 }
 
-.ciao {
+.playlistImg {
   align-items: center;
 }
-.ciao p {
+.playlistImg p {
   padding-left: 10px;
+}
+
+.homepagePlaylist {
+  width: 33%;
 }
 
 .left-bar {
