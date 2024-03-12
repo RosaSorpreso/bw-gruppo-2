@@ -1,5 +1,5 @@
 .central-part{
-    background:linear-gradient(to bottom, gray, rgb(0, 0, 0));
+    background:linear-gradient(to bottom, #322d2d , #000000);
     padding-top: 10px;
     .rounded-circle{
         border-radius: 50%;
@@ -54,4 +54,11 @@
 
 .homepagePlaylist{
     width: 33%;
+    background-color: #2D2D2D;
+}
+.otherPlaylist{
+    width: calc(100% / 5);
+    .card{
+        background-color: #171717;
+    }
 }
