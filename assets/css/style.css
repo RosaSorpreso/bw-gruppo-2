@@ -2,7 +2,7 @@
   max-height: 70%;
 }
 
-.profile-picture, #img-bar {
+.profile-picture, .miniature, .profile-picture-sm, #img-bar {
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -63,7 +63,7 @@ input[type=range] {
   font-size: 0.8em;
 }
 
-.profile-picture, #img-bar {
+.profile-picture-sm {
   width: 25px;
   height: 25px;
 }
@@ -74,8 +74,7 @@ input[type=range] {
 }
 
 .miniature {
-  width: 30px;
-  height: 30px;
+  border-radius: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

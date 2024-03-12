@@ -16,7 +16,8 @@ background: linear-gradient(180deg, rgb(45, 44, 44) 11%, rgba(18,18,18,1) 45%);
     font-size: 0.8em;
 }
 
-.profile-picture {
+.profile-picture-sm {
+    @extend .profile-picture;
     width: 25px;
     height: 25px;
 }
@@ -27,6 +28,6 @@ background: linear-gradient(180deg, rgb(45, 44, 44) 11%, rgba(18,18,18,1) 45%);
 }
 
 .miniature{
-    width: 30px;
-    height: 30px;
+    @extend .profile-picture;
+    border-radius: 0;
 }
