@@ -24,28 +24,34 @@ fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`, {
     year.innerText = album.release_date
     totalSongs.innerText = album.nb_tracks + ' brani,'
     totalTime.innerText = createDuration(album.duration)
-
-
+    
+    
     //ciclo per inserire ogni canzone
     for (i = 0; i < album.tracks.data.length; i++) {
         let song = createClone()
-
+        
         let number = song.querySelector('.number')
         let songTitle = song.querySelector('.song-title')
         let songArtist = song.querySelector('.song-artist')
         let streaming = song.querySelector('.streaming')
         let songDuration = song.querySelector('.song-duration')
         let playedSong = document.querySelector('#played-song')
-
+        
         number.innerText = i+1
         songTitle.innerText = album.tracks.data[i].title
         songArtist.innerText = album.tracks.data[i].artist.name
         streaming.innerText = album.tracks.data[i].rank
+        songArtist.href = `artist-page.html?id=${album.artist.id}`
         songDuration.innerText = createDuration(album.tracks.data[i].duration)
-        playedSong.src = album.tracks.data[i].preview
+        let appendSong = album.tracks.data[i]
+
+        songTitle.addEventListener('click', function(){
+            playedSong.src = appendSong.preview
+        })
+
         document.querySelector('.target').append(song)
     }
-
+    
 })
 
 function createClone (){
