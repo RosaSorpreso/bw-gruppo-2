@@ -18,12 +18,11 @@
 
 updateProgress();*/
 
-let song = document.getElementById('song');
-let playBtn = document.querySelector('.playBtn');
-let playIcon = document.querySelector('#iconBtn');
+let song = document.querySelector('#file-audio');
+let playIcon = document.querySelector('#play-icon');
 let progressed = document.querySelector('#progressed');
-let progressBar = document.querySelector('#progressBar');
-let minutesInit = document.querySelector('.minutesInit');
+let progressBar = document.querySelector('#myBar');
+let currentDuration = document.querySelector('.current-duration');
 
 //PROGRESS BAR// 
 
@@ -36,18 +35,18 @@ progressBar.addEventListener('click', (e) => {
 
 //AGGIORNAMENTO TEMPO// 
 
-let s = 0;
-let m = 0;
-function diomerda(e) {
-    let m = 0; let s = 0;
+let seconds = 0;
+let mimutes = 0;
+function formatTime(e) {
+    let minutes = 0; let seconds = 0;
 
     for (let i = 0; i < e; i++) {
-        s++; if (s >= 60) {
-            m++; s = 0;
+        seconds++; if (seconds >= 60) {
+            minutes++; seconds = 0;
         }
-    } return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    } return (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
 } function aggiornamento() {
-    minutesInit.innerText = diomerda(Math.floor(song.currentTime));
+    currentDuration.innerText = formatTime(Math.floor(song.currentTime));
 } setInterval(aggiornamento, 1000);
 
 //PLAY/PAUSE// 
@@ -61,7 +60,9 @@ function pauseSong() {
     playIcon.classList.remove('bi-pause-circle-fill')
     playIcon.classList.add('bi-play-circle-fill')
     song.pause()
-} playBtn.addEventListener('click', () => {
+} 
+
+playIcon.addEventListener('click', () => {
     const songProd = playIcon.classList.contains('bi-play-circle-fill') 
     if (songProd) { playSong() } else {
         pauseSong()
