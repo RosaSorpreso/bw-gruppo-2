@@ -156,17 +156,24 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(res => res.json())
     .then(album => {
         let trackList = document.querySelector('.target');
+        let imgBar = document.querySelector('#img-bar')
+        let titleBar = document.querySelector('#title-bar')
+        let authorBar = document.querySelector('#author-bar')
+
         album.tracks.data.forEach((track, index) => {
             let trackElement = document.importNode(document.getElementById('song').content, true);
             let title = trackElement.querySelector('.song-title');
             let artist = trackElement.querySelector('.song-artist');
             let number = trackElement.querySelector('.number');
-
-            title.textContent = track.title;
-            artist.textContent = track.artist.name;
-            number.textContent = index + 1;
+            
+            title.innerText = track.title;
+            artist.innerText = track.artist.name;
+            number.innerText = index + 1;
 
             title.addEventListener('click', () => {
+                titleBar.innerText = track.title
+                imgBar.src = album.cover_small
+                authorBar.innerText = album.artist.name
                 song.src = track.preview;
                 playSong();
             });
