@@ -68,13 +68,17 @@ updateProgress();*/
 //         pauseSong()
 //     }
 // })
-    let selectedSong = document.querySelector('#selected-song')
-    console.log(selectedSong);
+
+
+    let nomeaCazzo = createClone()
+    let selectedSong = nomeaCazzo.getElementById('selected-song')
+    let fileAudio = document.querySelector('#file-audio');
+
+    let isAudioReady = false
+
     selectedSong.addEventListener('click', function(){
         let url = new URLSearchParams(location.search);
         let id = url.get('id');
-    
-        let song = document.querySelector('#file-audio');
         
         fetch(`https://striveschool-api.herokuapp.com/api/deezer/track/${id}`, {
             headers:{
@@ -87,29 +91,35 @@ updateProgress();*/
             let titleBar = document.querySelector('#title-bar')
             let authorBar = document.querySelector('#author-bar')
             
-            song.src = track.preview;
+            fileAudio.src = track.preview;
             imgBar.src = track.album.cover_small
             titleBar.innerText = track.title
             authorBar.innerText = track.artist.name
+
+            isAudioReady = true
         });
     })
     
     let playIcon = document.querySelector('#play-icon');
     let progressBar = document.querySelector('#myBar');
     let currentDuration = document.querySelector('.current-duration');
-
+    
     function playSong() {
         playIcon.classList.add('bi-pause-circle-fill');
         playIcon.classList.remove('bi-play-circle-fill');
-        song.play();
+        if(isAudioReady && fileAudio.paused){
+            fileAudio.play();
+        }
     }
-
+    
     function pauseSong() {
         playIcon.classList.remove('bi-pause-circle-fill');
         playIcon.classList.add('bi-play-circle-fill');
-        song.pause();
+        if(isAudioReady && !fileAudio.paused){
+            fileAudio.pause();
+        }
     } 
-
+    
     playIcon.addEventListener('click', () => {
         const songProd = playIcon.classList.contains('bi-play-circle-fill');
         if (songProd) { 
@@ -118,25 +128,25 @@ updateProgress();*/
             pauseSong();
         }
     });
-
+    
     function aggiornamento() {
-        currentDuration.innerText = formatTime(Math.floor(song.currentTime));
+        currentDuration.innerText = formatTime(Math.floor(fileAudio.currentTime));
     }
-
+    
     setInterval(aggiornamento, 1000);
-
-    song.ontimeupdate = function () {
-        progressBar.style.width = Math.floor(song.currentTime * 100 / song.duration) + "%";
+    
+    fileAudio.ontimeupdate = function () {
+        progressBar.style.width = Math.floor(fileAudio.currentTime * 100 / fileAudio.duration) + "%";
     }
-
+    
     progressBar.addEventListener('click', (e) => {
-        song.currentTime = ((e.offsetX / progressBar.offsetWidth) * song.duration);
+        fileAudio.currentTime = ((e.offsetX / progressBar.offsetWidth) * fileAudio.duration);
     });
-
+    
     function formatTime(e) {
         let minutes = 0;
         let seconds = 0;
-
+        
         for (let i = 0; i < e; i++) {
             seconds++; 
             if (seconds >= 60) {
@@ -146,3 +156,10 @@ updateProgress();*/
         } 
         return (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
     }
+    
+
+function createClone (){
+    let template = document.querySelector('#song')
+    let clone = template.content.cloneNode(true)
+    return clone;
+}
