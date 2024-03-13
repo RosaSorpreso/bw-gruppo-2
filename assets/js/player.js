@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(album => {
         let firstTrack = album.tracks.data[0];
         song.src = firstTrack.preview;
-        playSong();
     });
 
     function playSong() {
