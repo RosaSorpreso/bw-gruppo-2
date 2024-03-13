@@ -68,26 +68,35 @@ updateProgress();*/
 //         pauseSong()
 //     }
 // })
-
-document.addEventListener("DOMContentLoaded", function() {
-    let url = new URLSearchParams(location.search);
-    let id = url.get('id');
-
-    let song = document.querySelector('#file-audio');
+    let selectedSong = document.querySelector('#selected-song')
+    console.log(selectedSong);
+    selectedSong.addEventListener('click', function(){
+        let url = new URLSearchParams(location.search);
+        let id = url.get('id');
+    
+        let song = document.querySelector('#file-audio');
+        
+        fetch(`https://striveschool-api.herokuapp.com/api/deezer/track/${id}`, {
+            headers:{
+                'Content-type':'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(track => {
+            let imgBar = document.querySelector('#img-bar')
+            let titleBar = document.querySelector('#title-bar')
+            let authorBar = document.querySelector('#author-bar')
+            
+            song.src = track.preview;
+            imgBar.src = track.album.cover_small
+            titleBar.innerText = track.title
+            authorBar.innerText = track.artist.name
+        });
+    })
+    
     let playIcon = document.querySelector('#play-icon');
     let progressBar = document.querySelector('#myBar');
     let currentDuration = document.querySelector('.current-duration');
-
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`, {
-        headers:{
-            'Content-type':'application/json'
-        }
-    })
-    .then(res => res.json())
-    .then(album => {
-        let firstTrack = album.tracks.data[0];
-        song.src = firstTrack.preview;
-    });
 
     function playSong() {
         playIcon.classList.add('bi-pause-circle-fill');
@@ -137,4 +146,3 @@ document.addEventListener("DOMContentLoaded", function() {
         } 
         return (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
     }
-});
