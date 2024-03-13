@@ -35,13 +35,14 @@ fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`, {
         let songArtist = song.querySelector('.song-artist')
         let streaming = song.querySelector('.streaming')
         let songDuration = song.querySelector('.song-duration')
+        let playedSong = document.querySelector('#played-song')
 
         number.innerText = i+1
         songTitle.innerText = album.tracks.data[i].title
         songArtist.innerText = album.tracks.data[i].artist.name
         streaming.innerText = album.tracks.data[i].rank
         songDuration.innerText = createDuration(album.tracks.data[i].duration)
-
+        playedSong.src = album.tracks.data[i].preview
         document.querySelector('.target').append(song)
     }
 
