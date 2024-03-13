@@ -20,7 +20,7 @@ updateProgress();*/
 
 let song = document.querySelector('#file-audio');
 let playIcon = document.querySelector('#play-icon');
-let progressed = document.querySelector('#progressed');
+let progressed = document.querySelector('#myProgress');
 let progressBar = document.querySelector('#myBar');
 let currentDuration = document.querySelector('.current-duration');
 
