@@ -90,14 +90,19 @@ function fillAllAlbums (){
 }
 
 fillAllAlbums ();
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     let searchForm = document.querySelector('form');
     let sideDx = document.getElementById('ciaone');
 
-    // Get the container where cards will be appended
+
     let container = document.querySelector('#home-content');
 
-    // Initialize an empty string to store card HTML
+
     let templateHTML = `   
     <form id="searchForm">
     <input type="text" id="searchInput" placeholder="Cerca traccia o album">
@@ -110,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (i % 5 === 0) {
         templateHTML += `</div><div class="row px-2">`;
         for (i = 1; i <= 50; i++) {
-            // Append each card template to the templateHTML string
             templateHTML += `
             <div class="col-md-2 mb-4 px-5">
                 <div class="card">
@@ -123,15 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     container.innerHTML = templateHTML;
 
-    // Get the parent of the template
+
     let templatesField = document.getElementById('templates-field');
 
-    // Add click event listener to the form
     searchForm.addEventListener('click', function (event) {
-        // Prevent the default action of the form
         event.preventDefault();
-        sideDx.style.display = 'none';// NON SO PERCHE NON FUZNIONA
-        // Replace the content of templates-field with the template
+        sideDx.style.display = 'none';
+
         templatesField.innerHTML = templateHTML;
     });
 });
