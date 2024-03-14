@@ -178,6 +178,7 @@ function generateAlbum (albumId){
             number.innerText = i+1
             songTitle.innerText = appendSong.title
             songArtist.innerText = appendSong.artist.name
+            songArtist.artistId = album.artist.id
             streaming.innerText = appendSong.rank
             songDuration.innerText = createDuration(appendSong.duration)
             
