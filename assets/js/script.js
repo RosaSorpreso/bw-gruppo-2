@@ -137,12 +137,6 @@ function createDuration (duration){
     return result;
 }
 
-//variabili searchbar
-let searchInput = document.querySelector('.search-input')
-let searchBtn = document.querySelector('.search-btn')
-
-
-
 //riempie la pagina album
 function generateAlbum (albumId){
     
