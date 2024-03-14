@@ -36,6 +36,7 @@ fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`, {
     //     let streaming = song.querySelector('.streaming')
     //     let songDuration = song.querySelector('.song-duration')
     //     let playedSong = document.querySelector('#played-song')
+    //     let totalDuration = document.querySelector('.total-duration')
         
     //     number.innerText = i+1
     //     songTitle.innerText = album.tracks.data[i].title
@@ -47,6 +48,11 @@ fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`, {
 
     //     songTitle.addEventListener('click', function(){
     //         playedSong.src = appendSong.preview
+    //         titleBar.innerText = appendSong.title
+    //         imgBar.src = album.cover_small
+    //         authorBar.innerText = album.artist.name
+    //         totalDuration.innerText = createDuration(appendSong.duration)
+    //         playSong();
     //     })
 
     //     document.querySelector('.target').append(song)

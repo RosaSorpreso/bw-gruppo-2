@@ -1,5 +1,4 @@
 
-document.addEventListener("DOMContentLoaded", function() {
     let urlParams = new URLSearchParams(location.search);
     let albumId = urlParams.get('id');
 
@@ -100,4 +99,3 @@ document.addEventListener("DOMContentLoaded", function() {
     bar.addEventListener('click', (e) => {
         song.currentTime = (e.offsetX / bar.offsetWidth) * song.duration;
     })
-});
