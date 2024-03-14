@@ -1,44 +1,51 @@
-.central-part{
-    background:linear-gradient(to bottom, #322d2d , #000000);
+.central-part {
+    background: linear-gradient(to bottom, #322d2d, #000000);
     padding-top: 10px;
-    .rounded-circle{
+
+    .rounded-circle {
         border-radius: 50%;
         width: 8%;
     }
-    .icona{
+
+    .icona {
         background-color: rgb(32, 32, 32);
         border-radius: 50%;
     }
-    i{
+
+    i {
         font-size: 20px;
         padding: 8px;
     }
 }
-.rettangolo{
-    background: linear-gradient(to right, #010101, #1d1d1d) ;
+
+.rettangolo {
+    background: linear-gradient(to right, #010101, #1d1d1d);
     height: 250px;
     color: black;
     display: flex;
     align-items: center;
     text-align: center;
     margin-top: 50px;
-    .square{
+
+    .square {
         width: 70%;
         margin-left: -55px;
     }
 
-    .album{
+    .album {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        .nascondiAnunnci{
+
+        .nascondiAnunnci {
             justify-content: flex-end;
             margin-right: 50px;
         }
 
-        .play{
+        .play {
             gap: 10px;
-            button{
+
+            button {
                 border-radius: 20px;
                 padding: 5px 20px 5px 20px;
                 margin-bottom: 10px;
@@ -47,39 +54,96 @@
     }
 }
 
-.imgBuonasera{
+.imgBuonasera {
     margin-left: -20px;
 }
-.playlistImg{
-    img{
+
+.playlistImg {
+    img {
         width: 80%;
     }
+
     align-items: center;
-    p{
-        padding-left:10px;
+
+    p {
+        padding-left: 10px;
     }
 }
 
-.homepagePlaylist{
+.homepagePlaylist {
     width: 30%;
     background-color: #2D2D2D;
     margin-left: 20px;
     margin-bottom: 20px;
 }
-.otherPlaylist{
+
+.otherPlaylist {
     width: calc(100% / 5);
-    .card{
+
+    .card {
         background-color: #171717;
     }
-    .card h5{
+
+    .card h5 {
         color: white;
     }
-    .card p{
+
+    .card p {
         color: gray;
     }
 }
-@media (max-width: 992px) {
-    .d-sm-block {
-        display: none ;
+
+@media (max-width: 768px) {
+    .rettangolo {
+        height: 200px;
+    }
+
+    .homepagePlaylist {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .otherPlaylist {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .central-part .rounded-circle {
+        width: 12%;
+    }
+
+    .rettangolo {
+        display: none;
+    }
+
+    .homepagePlaylist {
+        width: calc(50% - 10px);
+        margin: 5px;
+    }
+
+    .album .square {
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 962px) and (max-width: 1060px) {
+    .homepagePlaylist {
+        margin-right: 55px;
+        margin-left: 55px;
+    }
+
+    .playlistImg {
+        width: 70%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 962px) {
+    .homepagePlaylist {
+        margin-left: 15px;
+        width: calc(100% - 30px);
+        /* Larghezza del 100% meno i margini */
+        margin-bottom: 10px;
     }
 }
