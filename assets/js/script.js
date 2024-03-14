@@ -138,10 +138,18 @@ function createDuration (duration){
 }
 
 //variabili searchbar
-let searchInput = document.querySelector('.search-input')
-let searchBtn = document.querySelector('.search-btn')
+// let searchInput = document.querySelector('.search-input')
+// let searchBtn = document.querySelector('.search-btn')
 
+// let queryParam = searchInput.value
 
+// function search(queryParam){
+//     fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${queryParam}`, {
+//         headers:{
+//             'Content-type':'application/json'
+//         }
+//     }).then(res => res.json())
+// }
 
 //riempie la pagina album
 function generateAlbum (albumId){
