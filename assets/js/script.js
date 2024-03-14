@@ -89,4 +89,70 @@ function fillAllAlbums (){
     fillAlbum(214959662);
 }
 
-fillAllAlbums ()
+fillAllAlbums ();
+document.addEventListener('DOMContentLoaded', function () {
+    let searchForm = document.querySelector('form');
+    let sideDx = document.getElementById('ciaone');
+
+    // Get the container where cards will be appended
+    let container = document.querySelector('#home-content');
+
+    // Initialize an empty string to store card HTML
+    let templateHTML = `   
+    <form id="searchForm">
+    <input type="text" id="searchInput" placeholder="Cerca traccia o album">
+    <button type="submit">Cerca</button>
+</form>`
+
+    ;
+
+    let i = 0;
+    if (i % 5 === 0) {
+        templateHTML += `</div><div class="row px-2">`;
+        for (i = 1; i <= 50; i++) {
+            // Append each card template to the templateHTML string
+            templateHTML += `
+            <div class="col-md-2 mb-4 px-5">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Card ${i}</p>
+                    </div>
+                </div>
+            </div>`;
+        }
+    }
+    container.innerHTML = templateHTML;
+
+    // Get the parent of the template
+    let templatesField = document.getElementById('templates-field');
+
+    // Add click event listener to the form
+    searchForm.addEventListener('click', function (event) {
+        // Prevent the default action of the form
+        event.preventDefault();
+        sideDx.style.display = 'none';// NON SO PERCHE NON FUZNIONA
+        // Replace the content of templates-field with the template
+        templatesField.innerHTML = templateHTML;
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    let searchForm = document.getElementById('searchForm');
+
+    searchForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        let searchTerm = document.getElementById('searchInput').value.trim();
+
+        let foundAlbumId = findAlbumId(searchTerm); 
+
+        if (foundAlbumId) {
+            window.location.href = `album.html?id=${foundAlbumId}#ciao1`;
+        } else {
+
+            console.log("Nessun risultato trovato per la ricerca.");
+        }
+    });
+});
+

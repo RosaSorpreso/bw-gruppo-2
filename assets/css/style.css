@@ -240,6 +240,10 @@
   color: #adb5bd;
 }
 
+.row {
+  height: 100%;
+}
+
 .left-bar {
   max-height: 70%;
 }
