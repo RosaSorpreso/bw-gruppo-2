@@ -78,8 +78,64 @@
         color: gray;
     }
 }
+
 @media (max-width: 992px) {
     .d-sm-block {
         display: none ;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .rettangolo {
+        height: 200px;
+    }
+
+    .homepagePlaylist {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .otherPlaylist {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card{
+        width: 70%;
+    }
+    .rettangolo {
+        display: none;
+    }
+
+    .homepagePlaylist {
+        width: calc(50% - 10px);
+        margin: 5px;
+    }
+
+    .album .square {
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 962px) and (max-width: 1060px) {
+    .homepagePlaylist {
+        margin-right: 55px;
+        margin-left: 55px;
+    }
+
+    .playlistImg {
+        width: 70%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 962px) {
+    .homepagePlaylist {
+        margin-left: 15px;
+        width: calc(100% - 30px);
+        /* Larghezza del 100% meno i margini */
+        margin-bottom: 10px;
     }
 }
