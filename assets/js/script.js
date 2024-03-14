@@ -5,12 +5,14 @@ let cloneArtist = templateArtist.content.cloneNode(true);
 let templateAlbum = document.getElementsByTagName('template')[2]
 let cloneAlbum = templateAlbum.content.cloneNode(true);
 document.getElementById('templates-field').append(cloneHome.cloneNode(true))
+setTimeout(iterateLoader, 1000)
+
 
 function appendArtist (){
     let actualChild = document.getElementById('templates-field').getElementsByTagName('div')[0]
     document.getElementById('templates-field').removeChild(actualChild)
     document.getElementById('templates-field').append(cloneArtist.cloneNode(true))
-    iterateLoader()
+    setTimeout(iterateLoader, 1000)
 }
 
 function generateAlbum (albumId){
@@ -29,7 +31,7 @@ function generateAlbum (albumId){
         let year = document.querySelector('#album-year')
         let totalSongs = document.querySelector('#songs-amount')
         let totalTime = document.querySelector('#total-time')
-
+        
         coverAlbum.src = album.cover_medium
         type.innerText = album.record_type
         title.innerText = album.title
@@ -39,17 +41,16 @@ function generateAlbum (albumId){
         totalSongs.innerText = album.nb_tracks + ' brani,'
         totalTime.innerText = createDuration(album.duration)
         
-        
         //ciclo per inserire ogni canzone
         for (i = 0; i < album.tracks.data.length; i++) {
-            let song = createClone()
+            let song = createClone('#song')
             
             let number = song.querySelector('.number')
             let songTitle = song.querySelector('.song-title')
             let songArtist = song.querySelector('.song-artist')
             let streaming = song.querySelector('.streaming')
             let songDuration = song.querySelector('.song-duration')
-            let playedSong = document.querySelector('#played-song')
+            // let playedSong = document.querySelector('#played-song')
             
             number.innerText = i+1
             songTitle.innerText = album.tracks.data[i].title
@@ -57,40 +58,34 @@ function generateAlbum (albumId){
             streaming.innerText = album.tracks.data[i].rank
             songArtist.href = `artist-page.html?id=${album.artist.id}`
             songDuration.innerText = createDuration(album.tracks.data[i].duration)
-            let appendSong = album.tracks.data[i]
-
-            songTitle.addEventListener('click', function(){
-                playedSong.src = appendSong.preview
-            })
-
-            document.querySelector('.target').append(song)
-        }
+            // let appendSong = album.tracks.data[i]
+            
+            // songTitle.addEventListener('click', function(){
+                //     playedSong.src = appendSong.preview
+                // })
+                
+                document.querySelector('.target').append(song)
+            }
+            
+        })
         
-    })
-
-    function createClone (){
-        let template = document.querySelector('#song')
-        let clone = template.content.cloneNode(true)
-        return clone;
-    }
-
-    //funzione per impostare la durata di album/canzone in minuti e secondi
-    function createDuration (duration){
-        const minutes = Math.floor(duration / 60);
-        const seconds = duration % 60;
-        function padTo2Digits(num) {
-            return num.toString().padStart(2, '0');
+        //funzione per impostare la durata di album/canzone in minuti e secondi
+        function createDuration (duration){
+            const minutes = Math.floor(duration / 60);
+            const seconds = duration % 60;
+            function padTo2Digits(num) {
+                return num.toString().padStart(2, '0');
+            }
+            const result = `${padTo2Digits(minutes)} min ${padTo2Digits(seconds)} sec`;
+            return result;
         }
-        const result = `${padTo2Digits(minutes)} min ${padTo2Digits(seconds)} sec`;
-        return result;
     }
-}
-
+    
 function appendAlbum (){
     let actualChild = document.getElementById('templates-field').getElementsByTagName('div')[0]
     document.getElementById('templates-field').removeChild(actualChild)
     document.getElementById('templates-field').append(cloneAlbum.cloneNode(true))
-    iterateLoader()
+    setTimeout(iterateLoader, 1000)
 }
 
 function appendHome (){
@@ -98,7 +93,7 @@ function appendHome (){
     document.getElementById('templates-field').removeChild(actualChild)
     document.getElementById('templates-field').append(cloneHome.cloneNode(true))
     fillAllAlbums()
-    iterateLoader()
+    setTimeout(iterateLoader, 1000)
 }
 
 function iterateLoader () {
@@ -110,6 +105,7 @@ function iterateLoader () {
         document.getElementsByClassName('loadHome')[i].addEventListener('click', appendHome);
     }
     
+    console.log(document.getElementsByClassName('loadAlbum'));
     for (let i = 0; i < document.getElementsByClassName('loadAlbum').length; i++) {
         let id = document.getElementsByClassName('loadAlbum')[i].albumId;
         document.getElementsByClassName('loadAlbum')[i].addEventListener('click', function() {
@@ -119,37 +115,34 @@ function iterateLoader () {
     }
 }
 
-iterateLoader()
-
-function createClone (){
-    let template = document.querySelector('#card-album')
+function createClone (tag){
+    let template = document.querySelector(tag)
     let clone = template.content.cloneNode(true)
-    iterateLoader()
     return clone;
 }
 
 const fillAlbum = idAlbum => {
     fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${idAlbum}`, {
-    headers:{
-        'Content-type':'application/json'
-    }
-}).then(res => res.json())
-.then(album => {
-    // console.log(album)
-        let card = createClone()
-
+        headers:{
+            'Content-type':'application/json'
+        }
+    }).then(res => res.json())
+    .then(album => {
+        // console.log(album)
+        let card = createClone('#card-album')
+        
         let img = card.querySelector('.card-img-top')
         let title = card.querySelector('.card-title')
         let artist = card.querySelector('.card-text')
-
+        
         img.src = album.cover_big
         title.innerText = album.title
         artist.innerText = album.artist.name
         title.albumId = idAlbum
-        // artist.href = `artist-page.html?id=${album.artist.id}`
-
+        artist.artistId = album.artist.id
+        
         document.querySelector('.row-albums').append(card)
-})
+    })
 }
 
 function fillAllAlbums (){
@@ -165,4 +158,4 @@ function fillAllAlbums (){
     fillAlbum(214959662);
 }
 
-fillAllAlbums ()
+fillAllAlbums();
