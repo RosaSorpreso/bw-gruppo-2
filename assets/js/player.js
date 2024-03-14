@@ -165,9 +165,13 @@ document.addEventListener("DOMContentLoaded", function() {
             let title = trackElement.querySelector('.song-title');
             let artist = trackElement.querySelector('.song-artist');
             let number = trackElement.querySelector('.number');
+            let streaming = trackElement.querySelector('.streaming');
+            let songDuration = trackElement.querySelector('.song-duration');
             
             title.innerText = track.title;
             artist.innerText = track.artist.name;
+            streaming.innerText = track.rank;
+            songDuration.innerText = createDuration(track.duration)
             number.innerText = index + 1;
 
             title.addEventListener('click', () => {
@@ -181,6 +185,17 @@ document.addEventListener("DOMContentLoaded", function() {
             trackList.appendChild(trackElement);
         });
     });
+
+    //funzione per impostare la durata di album/canzone in minuti e secondi
+    function createDuration (duration){
+        const minutes = Math.floor(duration / 60);
+        const seconds = duration % 60;
+        function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+        }
+        const result = `${padTo2Digits(minutes)} min ${padTo2Digits(seconds)} sec`;
+        return result;
+    }
 
     function playSong() {
         playIcon.classList.add('bi-pause-circle-fill');
