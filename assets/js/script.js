@@ -291,3 +291,75 @@ function iterateLoader () {
         document.getElementsByClassName('loadAlbum')[i].addEventListener('click', appendAlbum);
     }
 }
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    let searchForm = document.querySelector('form');
+    let sideDx = document.getElementById('ciaone');
+
+
+    let container = document.querySelector('#home-content');
+
+
+    let templateHTML = `   
+    <form id="searchForm">
+    <input type="text" id="searchInput" placeholder="Cerca traccia o album">
+    <button type="submit">Cerca</button>
+</form>`
+
+    ;
+
+    let i = 0;
+    if (i % 5 === 0) {
+        templateHTML += `</div><div class="row px-2">`;
+        for (i = 1; i <= 50; i++) {
+            templateHTML += `
+            <div class="col-md-2 mb-4 px-5">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">Card ${i}</p>
+                    </div>
+                </div>
+            </div>`;
+        }
+    }
+    container.innerHTML = templateHTML;
+
+
+    let templatesField = document.getElementById('templates-field');
+
+    searchForm.addEventListener('click', function (event) {
+        event.preventDefault();
+        sideDx.style.display = 'none';
+
+        templatesField.innerHTML = templateHTML;
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    let searchForm = document.getElementById('searchForm');
+
+    searchForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        let searchTerm = document.getElementById('searchInput').value.trim();
+
+        let foundAlbumId = findAlbumId(searchTerm); 
+
+        if (foundAlbumId) {
+            window.location.href = `album.html?id=${foundAlbumId}#ciao1`;
+        } else {
+
+            console.log("Nessun risultato trovato per la ricerca.");
+        }
+    });
+});
+
