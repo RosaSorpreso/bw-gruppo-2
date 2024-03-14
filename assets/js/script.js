@@ -205,6 +205,60 @@ function appendAlbum (){
     setTimeout(iterateLoader, 1000)
 }
 
+//riempie la pagina artista
+function generateArtist (artistId){
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`, {
+        headers:{
+            'Content-type':'application/json'
+        }
+    }).then(res => res.json())
+    .then(artist => {
+        let backgroungImg = document.querySelector('.bg-img')
+        let profileImg = document.querySelector('#img-artist-page')
+        let artistName = document.querySelector('.artist-name-page')
+        let followers = document.querySelector('#followers')
+
+        artistName.innerText = artist.name
+        followers.innerText = `${artist.nb_fan} ascoltatori mensili`
+        profileImg.src = artist.picture_small
+        backgroungImg.style.backgroundImage = `url('${artist.picture_big}')`
+    })
+
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=5`, {
+        headers:{
+            'Content-type':'application/json'
+        }
+    }).then(res => res.json())
+    .then(songs => {
+        console.log(songs);
+        songs.data.forEach(audio => {
+            let topSong = createClone('#popular-song')
+    
+            let imgSong = topSong.querySelector('.img-song-artist')
+            let songTitle = topSong.querySelector('.song-title-artist')
+            let streamingSong = topSong.querySelector('.streaming-artist')
+            let durationSong = topSong.querySelector('.duration-artist')
+            let totalDuration = document.querySelector('.total-duration')
+    
+            imgSong.src = audio.album.cover_small
+            songTitle.innerText = audio.title
+            streamingSong.innerText = audio.rank
+            durationSong.innerText = createDuration(audio.duration)
+            
+            songTitle.addEventListener('click', () => {
+                titleBar.innerText = audio.title
+                imgBar.src = audio.album.cover_small
+                authorBar.innerText = audio.artist.name
+                totalDuration.innerText = createDuration(audio.duration)
+                song.src = audio.preview
+                playSong()
+            })
+
+            document.querySelector('#stendino').append(topSong)
+        });
+    })
+}
+
 //appende la pagina artista
 function appendArtist (){
     let actualChild = document.getElementById('templates-field').getElementsByTagName('div')[0]
@@ -216,6 +270,10 @@ function appendArtist (){
 //funzione che assegna evento click ai collegamenti dei template
 function iterateLoader () {
     for (let i = 0; i < document.getElementsByClassName('loadArtist').length; i++) {
+        let id = document.getElementsByClassName('loadArtist')[i].artistId;
+        document.getElementsByClassName('loadArtist')[i].addEventListener('click', function() {
+            generateArtist(id)
+        });
         document.getElementsByClassName('loadArtist')[i].addEventListener('click', appendArtist);
     }
     

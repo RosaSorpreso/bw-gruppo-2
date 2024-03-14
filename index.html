@@ -213,8 +213,8 @@
                         </div>
                         <div class="artist mt-5 pt-5">
                             <p class="mb-0"><i class="bi bi-patch-check-fill text-primary"></i> Artista verificato</p>
-                            <h1 class="mb-2 fw-bold name">Artista</h1>
-                            <p>55815545 ascoltatori mensili</p>
+                            <h1 class="mb-2 fw-bold artist-name-page"></h1>
+                            <p id="followers"></p>
                         </div>
                         </div>
                         <div class="container bg-gradient">
@@ -229,70 +229,32 @@
                         <div class="row">
                             <div class="col-7">
                                 <h4 class="py-2 fw-bold">Popolari</h4>
-
-                                <div class="d-flex flex-column my-font-size">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        
-                                        <div class="track d-flex gap-2">
-                                        <p>1</p>
-                                        <img src="./assets/imgs/main/image-1.jpg" alt="" class="miniature">
-                                        <p class="fw-bold">gaaaaaaaaaaa</p>
+                                <div id="stendino">
+                                    <template id="popular-song">
+                                        <div class="d-flex flex-column my-font-size">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <div class="track d-flex gap-2">
+                                                    <p>1</p>
+                                                    <img src="" alt="" class="miniature img-song-artist">
+                                                    <p class="fw-bold song-title-artist"></p>
+                                                </div>
+                                                <p class="streaming-artist"></p>
+                                                <p class="duration-artist"></p>
+                                            </div>
                                         </div>
-                                        <p>5465465</p>
-                                        <p>2:40</p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between ">
-                                        
-                                        <div class="track d-flex gap-2 ">
-                                        <p>2</p>
-                                        <img src="./assets/imgs/main/image-1.jpg" alt="" class="miniature">
-                                        <p class="fw-bold">gaaaaaaaaaaa</p>
-                                        </div>
-                                        <p>5465465</p>
-                                        <p>2:40</p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between ">
-                                        
-                                        <div class="track d-flex gap-2 ">
-                                        <p>3</p>
-                                        <img src="./assets/imgs/main/image-1.jpg" alt="" class="miniature">
-                                        <p class="fw-bold">gaaaaaaaaaaa</p>
-                                        </div>
-                                        <p>5465465</p>
-                                        <p>2:40</p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between ">
-                                        
-                                        <div class="track d-flex gap-2 ">
-                                        <p>4</p>
-                                        <img src="./assets/imgs/main/image-1.jpg" alt="" class="miniature">
-                                        <p class="fw-bold">gaaaaaaaaaaa</p>
-                                        </div>
-                                        <p>5465465</p>
-                                        <p>2:40</p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between ">
-                                        
-                                        <div class="track d-flex gap-2 ">
-                                        <p>5</p>
-                                        <img src="./assets/imgs/main/image-1.jpg" alt="" class="miniature">
-                                        <p class="fw-bold">gaaaaaaaaaaa</p>
-                                        </div>
-                                        <p>5465465</p>
-                                        <p>2:40</p>
-                                    </div>
+                                    </template>
                                 </div>
                             </div>
                             <div class="col-5">
                                 <p class="py-2 fw-bold">Brani che ti piacciono</p>
                                 <div class="d-flex">
                                 <div class="position-relative">
-                                <img src="./assets/imgs/profile/fotoprofilo.png" alt="" class="profile-picture-l">
+                                <img id="img-artist-page" src="" alt="" class="profile-picture-l">
                                 <span class="badge position-absolute rounded-pill text-bg-success my-badge"><i class="bi bi-heart-fill my-font-size-sm"></i></span>
                                 </div>
                                 <div class="d-flex flex-column ms-2">
                                 <p class="fw-bold my-font-size mb-0">Hai messo mi piace a 10 brani</p>
-                                <p class="my-font-size">Di Artista</p>
+                                <p class="my-font-size artist-name-page"></p>
                                 </div>
                             </div>
                             </div>
@@ -363,11 +325,11 @@
                                 <div class="row align-items-center pt-2">
                                     <div class="col-1 text-center number"></div>
                                     <div class="col-6">
-                                        <div class="fw-semibold song-title">Canzone</div>
-                                        <a href="" class="gray-text song-artist">Artista</a>
+                                        <div class="fw-semibold song-title"></div>
+                                        <a href="" class="gray-text song-artist"></a>
                                     </div>
-                                    <div class="col-2 text-end streaming">123456</div>
-                                    <div class="col-3 text-end song-duration">04:40</div>
+                                    <div class="col-2 text-end streaming"></div>
+                                    <div class="col-3 text-end song-duration"></div>
                                     </div>
                                 </div>
                             </template>
@@ -511,7 +473,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/player.js"></script>
 </body>
 
 </html>
