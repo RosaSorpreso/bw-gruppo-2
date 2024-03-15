@@ -277,7 +277,9 @@ function generateArtist (artistId){
         artistName.innerText = artist.name
         followers.innerText = `${artist.nb_fan} ascoltatori mensili`
         profileImg.src = artist.picture_small
-        backgroungImg.style.backgroundImage = `url('${artist.picture_big}')`
+        backgroungImg.style.backgroundImage = `url('${artist.picture_xl}')`
+        backgroungImg.style.backgroundRepeat = "no-repeat"
+        backgroungImg.style.backgroundSize = "cover"
     })
 
     fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=5`, {
