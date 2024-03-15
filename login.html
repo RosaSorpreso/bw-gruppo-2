@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="containerLogin">
+        <div class="imgLogin">
+            <img src="assets/imgs/loginImg/Spotify_logo_with_text.svg.png">
+        </div>
+        <div class="login-content">
+            <form action="index.html">
+                <img src="">
+                <h2 class="titleLogin">Welcome</h2>
+
+
+                <div class="input-div one">
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    <label for="imageInput">
+                        <img id="previewImage" src="" alt="Choose Image">
+                    </label>
+                </div>
+
+
+
+                <div class="input-div one">
+                    <div class="iLogin">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5 class="h5Title">Username</h5>
+                        <input type="text" class="inputLogin" required>
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="iLogin">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5 class="h5Title">Password</h5>
+                        <input type="password" class="inputLogin" required>
+                    </div>
+                </div>
+                <a href="#">Forgot Password?</a>
+                <input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        const inputs = document.querySelectorAll(".inputLogin");
+
+        // Aggiungi event listener per il cambio di immagine
+        document.getElementById('imageInput').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('previewImage').src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        function addFocus() {
+            let parent = this.parentNode.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function remFocus() {
+            let parent = this.parentNode.parentNode;
+            if (this.value == "") {
+                parent.classList.remove("focus");
+            }
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener("focus", addFocus);
+            input.addEventListener("blur", remFocus);
+        });
+
+    </script>
+
+</body>
+
+</html>
