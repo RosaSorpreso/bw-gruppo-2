@@ -1,0 +1,212 @@
+.central-part{
+    background:linear-gradient(to bottom, #322d2d , #000000);
+    padding-top: 10px;
+    .rounded-circle{
+        border-radius: 50%;
+        
+    }
+    .icona{
+        background-color: rgb(32, 32, 32);
+        border-radius: 50%;
+    }
+    i{
+        font-size: 20px;
+        padding: 8px;
+    }
+}
+.rettangolo{
+    background: linear-gradient( #000,#181818) ;
+    height: 230px;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    margin: 10px;
+    .square{
+        width: 70%;
+        
+    }
+
+    .album{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        .nascondiAnunnci{
+            justify-content: flex-end;
+            margin-right: 50px;
+            
+        }
+
+        .play{
+            gap: 10px;
+            button{
+                border-radius: 20px;
+                padding: 5px 20px 5px 20px;
+                margin-bottom: 10px;
+            }
+        }
+        h2{
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        p:nth-child(1){
+            font-weight: bold;
+        }
+    }
+}
+
+.imgBuonasera{
+    margin-left: -20px;
+    width: 50px;
+}
+.playlistImg{
+    
+    align-items: center;
+    p{
+        padding-left:10px;
+        padding-top: 10px;
+    }
+}
+
+.homepagePlaylist{
+    width: 45%;
+    background-color: #2D2D2D;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.otherPlaylist{
+    
+    .card{
+        background-color: #171717;
+        margin-bottom: 10px;
+        font-size: 0.8em;
+    }
+    .card h5{
+        color: white;
+    }
+    .card p{
+        color: gray;
+    }
+    .cut-text{
+        text-overflow: ellipsis;
+        overflow: hidden; 
+        width: 130px; 
+        white-space: nowrap;
+    }
+}
+
+
+
+/*@media (max-width: 768px) {
+    .rettangolo {
+        height: 200px;
+    }
+
+    
+
+    .otherPlaylist {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card{
+        width: 70%;
+    }
+    .rettangolo {
+        display: none;
+    }
+
+    
+
+    .album .square {
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 962px) and (max-width: 1060px) {
+   
+
+    .playlistImg {
+        width: 70%;
+    }
+    
+}
+
+@media (min-width: 576px) and (max-width: 962px) {
+    
+    
+        margin-bottom: 10px;
+    }
+    
+}*/
+@media  (max-width:576px) {
+    #myProgress{
+        display: none;
+    }
+    .total-duration{
+        display: none;
+    }
+    .current-duration{
+        display: none;
+    }
+    .icone-volume{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+    .mediaplayer-mobile{
+        position:fixed;
+        bottom:68px;
+    }
+    .foot-mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .mobile{
+        background-color: #010101;
+        opacity: 0.9;
+    }
+    
+}
+
+@media screen and (min-width:575px) and (max-width:962px) {
+    #myProgress{
+        display: none;
+    }
+    .total-duration{
+        display: none;
+    }
+    .current-duration{
+        display: none;
+    }
+    .icone-volume{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+    .mediaplayer-mobile{
+        position:fixed;
+        bottom:68px;
+    }
+    .foot-mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .mobile{
+        background-color: #010101;
+        opacity: 0.9;
+    }
+    
+}
+

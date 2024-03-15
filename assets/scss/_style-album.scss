@@ -1,0 +1,36 @@
+#artist-thumbnail {
+    width:24px;
+    border-radius:50%
+}
+
+.background-gradient {
+    background: linear-gradient(#dbc236, 25%, #000000);
+}
+
+.dropdown-item {
+    color: white;
+    &:hover {
+        color: #000000;
+    }
+}
+
+.height-100vh {
+    height: 100vh;
+}
+
+@for $i from 1 through 10 {
+    .height-#{$i*10} {
+        height:#{$i*10}vh;
+    };
+}
+
+.gray-text {
+    color: #adb5bd;
+}
+
+.d-none-album {
+    display: none;
+    @media screen and (min-width: 768px) {
+        display: block;
+    }
+}

@@ -1,0 +1,54 @@
+
+@import "homepage";
+
+@import "style-artist";
+
+@import "style-album";
+
+.left-bar {
+    max-height: 70%;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.my-font-size {
+    font-size: 0.7rem;
+}
+
+#img-bar {
+    @extend .profile-picture;
+    border-radius: 0;
+}
+
+#myProgress {
+    width: 300%;
+    height: 5px;
+    border-radius: 10px;
+    background-color: grey;
+    
+}
+
+#myBar {
+    width: 1%;
+    height: 5px;
+    border-radius: 10px;
+}
+
+.mediaplayer {
+    width: 300%;
+}
+
+.progress-bar {
+    display: inline-block;
+    height : 10px;
+    width: 100px;
+    border: 2px solid gray;
+}
+input[type="range"] {
+    accent-color: white;
+}
+
