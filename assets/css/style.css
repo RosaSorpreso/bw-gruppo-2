@@ -311,6 +311,15 @@
   color: #adb5bd;
 }
 
+.d-none-album {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .d-none-album {
+    display: block;
+  }
+}
+
 .left-bar {
   max-height: 70%;
 }

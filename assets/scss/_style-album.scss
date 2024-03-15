@@ -27,3 +27,10 @@
 .gray-text {
     color: #adb5bd;
 }
+
+.d-none-album {
+    display: none;
+    @media screen and (min-width: 768px) {
+        display: block;
+    }
+}
