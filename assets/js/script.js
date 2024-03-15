@@ -164,6 +164,9 @@ function search(queryParam){
             titleSearch.innerText = result.title
             albumSearch.innerText = result.album.title
             artistSearch.innerText = result.artist.name
+            artistSearch.artistId = result.artist.id
+            albumSearch.albumId = result.album.id
+
 
             titleSearch.addEventListener('click', function(){
                 titleBar.innerText = result.title_short
