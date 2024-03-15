@@ -18,13 +18,14 @@
                 <h2 class="titleLogin">Welcome To Spotify</h2>
 
                 <div class="input-divLogin one">
-                    <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
                     <label for="imageInput">
                         <img id="previewImage" src="" alt="Choose Image">
                     </label>
+                    <input id="imageInput" type="file" accept="image/*" onchange="displayImage()">
                 </div>
+                
 
-                <div class="input-divLogin one">
+                <div class="input-divLogin one" >
                     <div class="iLogin">
                         <i class="fas fa-user"></i>
                     </div>
@@ -64,44 +65,48 @@
             let username = document.getElementById("username").value;
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
-            let image = document.getElementById("imageInput").files[0];
+            let imageInput = document.getElementById("imageInput").files[0];
 
-            if (username === "" || email === "" || password === "" || !image) {
+            if (username === "" || email === "" || password === "" || !imageInput) {
                 alert("Please fill in all fields and select an image");
                 return;
             }
 
-            // Creazione di un oggetto con i dati del modulo
             let formData = {
                 username: username,
                 email: email,
-                password: password,
-                image: image.name // Salva solo il nome del file, non il file effettivo
+                password: password
             };
 
-            // Converti l'oggetto in una stringa JSON
-            let jsonData = JSON.stringify(formData);
+            let reader = new FileReader(); 
 
-            // Simula l'invio dei dati inviando la stringa JSON a una richiesta API o salvandola localmente
-            localStorage.setItem('formData', jsonData);
+            reader.readAsDataURL(imageInput); 
 
-            // Reindirizza l'utente dopo aver salvato i dati
-            window.location.href = "index.html";
+            reader.onload = function() {
+                formData.image = reader.result; 
+                let jsonData = JSON.stringify(formData);
+
+                localStorage.setItem('formData', jsonData);
+
+                window.location.href = "index.html";
+            };
         }
 
-        function previewImage(event) {
-            const preview = document.getElementById('previewImage');
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onloadend = function () {
-                preview.src = reader.result;
-            }
+        function displayImage() {
+            const fileInput = document.getElementById("imageInput");
+            const previewImage = document.getElementById("previewImage");
+            const file = fileInput.files[0];
 
             if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(event) {
+                    previewImage.src = event.target.result;
+                };
+
                 reader.readAsDataURL(file);
             } else {
-                preview.src = "";
+                previewImage.src = ""; 
             }
         }
     </script>
