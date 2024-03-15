@@ -4,7 +4,6 @@
 }
 .central-part .rounded-circle {
   border-radius: 50%;
-  width: 8%;
 }
 .central-part .icona {
   background-color: rgb(32, 32, 32);
@@ -158,6 +157,9 @@
   .mobile {
     background-color: #010101;
     opacity: 0.9;
+  }
+  w-mobile {
+    width: 100%;
   }
 }
 @media screen and (min-width: 575px) and (max-width: 962px) {
