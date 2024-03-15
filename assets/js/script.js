@@ -347,10 +347,9 @@ function iterateLoader () {
     searchBtn.addEventListener('click', function(){
         let queryParam = searchInput.value
         search(queryParam)
+        searchInput.value=""
     })
 
     searchBtn.addEventListener('click', appendResults)
 
 }
-
-
