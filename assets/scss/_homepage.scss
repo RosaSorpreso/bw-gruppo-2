@@ -1,44 +1,51 @@
-.central-part{
-    background:linear-gradient(to bottom, #322d2d , #000000);
+.central-part {
+    background: linear-gradient(to bottom, #322d2d, #000000);
     padding-top: 10px;
-    .rounded-circle{
+
+    .rounded-circle {
         border-radius: 50%;
         width: 8%;
     }
-    .icona{
+
+    .icona {
         background-color: rgb(32, 32, 32);
         border-radius: 50%;
     }
-    i{
+
+    i {
         font-size: 20px;
         padding: 8px;
     }
 }
-.rettangolo{
-    background: linear-gradient(to right, #010101, #1d1d1d) ;
+
+.rettangolo {
+    background: linear-gradient(to right, #010101, #1d1d1d);
     height: 250px;
     color: black;
     display: flex;
     align-items: center;
     text-align: center;
     margin-top: 50px;
-    .square{
+
+    .square {
         width: 70%;
         margin-left: -55px;
     }
 
-    .album{
+    .album {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        .nascondiAnunnci{
+
+        .nascondiAnunnci {
             justify-content: flex-end;
             margin-right: 50px;
         }
 
-        .play{
+        .play {
             gap: 10px;
-            button{
+
+            button {
                 border-radius: 20px;
                 padding: 5px 20px 5px 20px;
                 margin-bottom: 10px;
@@ -47,38 +54,46 @@
     }
 }
 
-.imgBuonasera{
+.imgBuonasera {
     margin-left: -20px;
 }
-.playlistImg{
-    img{
+
+.playlistImg {
+    img {
         width: 80%;
     }
+
     align-items: center;
-    p{
-        padding-left:10px;
+
+    p {
+        padding-left: 10px;
     }
 }
 
-.homepagePlaylist{
+.homepagePlaylist {
     width: 30%;
     background-color: #2D2D2D;
     margin-left: 20px;
     margin-bottom: 20px;
 }
-.otherPlaylist{
+
+.otherPlaylist {
     width: calc(100% / 5);
-    .card{
+
+    .card {
         background-color: #171717;
     }
-    .card h5{
+
+    .card h5 {
         color: white;
     }
-    .card p{
+
+    .card p {
         color: gray;
     }
 }
 
+// VECCHIO SCSS RESPONSIVE MA NON FA IL DISPLAY NONE DELLA SECTIONDX
 @media (max-width: 992px) {
     .d-sm-block {
         display: none ;
@@ -160,3 +175,244 @@
         width: 70%;
     }
 }
+
+
+// NUOVO SCSS RESPONSIVE MA NON FA IL DISPLAY NONE DELLA SECTIONDX
+// .central-part {
+//     background: linear-gradient(to bottom, #322d2d, #000000);
+//     padding-top: 10px;
+
+//     .rounded-circle {
+//         border-radius: 50%;
+//         width: 8%;
+//     }
+
+//     .icona {
+//         background-color: rgb(32, 32, 32);
+//         border-radius: 50%;
+//     }
+
+//     i {
+//         font-size: 20px;
+//         padding: 8px;
+//     }
+// }
+
+// .rettangolo {
+//     background: linear-gradient(to right, #010101, #1d1d1d);
+//     height: 250px;
+//     color: black;
+//     display: flex;
+//     align-items: center;
+//     text-align: center;
+//     margin-top: 50px;
+
+//     .square {
+//         width: 70%;
+//         margin-left: -55px;
+//     }
+
+//     .album {
+//         display: flex;
+//         align-items: flex-start;
+//         flex-direction: column;
+
+//         .nascondiAnunnci {
+//             justify-content: flex-end;
+//             margin-right: 50px;
+//         }
+
+//         .play {
+//             gap: 10px;
+
+//             button {
+//                 border-radius: 20px;
+//                 padding: 5px 20px 5px 20px;
+//                 margin-bottom: 10px;
+//             }
+//         }
+//     }
+// }
+
+// .imgBuonasera {
+//     margin-left: -20px;
+// }
+
+// .playlistImg {
+//     img {
+//         width: 80%;
+//     }
+
+//     align-items: center;
+
+//     p {
+//         padding-left: 10px;
+//     }
+// }
+
+// .homepagePlaylist {
+//     width: 30%;
+//     background-color: #2D2D2D;
+//     margin-left: 20px;
+//     margin-bottom: 20px;
+// }
+
+// .otherPlaylist {
+//     width: calc(100% / 5);
+
+//     .card {
+//         background-color: #171717;
+//     }
+
+//     .card h5 {
+//         color: white;
+//     }
+
+//     .card p {
+//         color: gray;
+//     }
+// }
+
+
+// @media (max-width: 768px) {
+//     .rettangolo {
+//         height: 200px;
+//     }
+
+//     .homepagePlaylist {
+//         width: 100%;
+//         margin: 10px 0;
+//     }
+
+//     .otherPlaylist {
+//         width: 100%;
+//         margin-bottom: 10px;
+//     }
+// }
+
+// @media (max-width: 576px) {
+//     .card {
+//         width: 65%;
+//         margin: auto;
+//     }
+
+//     .rettangolo img {
+//         margin-right: -40px;
+//     }
+
+//     .homepagePlaylist {
+//         width: calc(50% - 10px);
+//         margin-bottom: 15px;
+//         margin-left: 15px;
+//     }
+
+//     .album .square {
+//         padding-right: 20px;
+//     }
+// }
+
+// @media (min-width: 962px) and (max-width: 1060px) {
+//     .homepagePlaylist {
+//         width: calc(40%);
+//         margin: 10px auto;
+//     }
+
+
+//     .otherPlaylist {
+//         width: 30%;
+//         margin-bottom: 10px;
+//     }
+
+//     .playlistImg {
+//         width: 70%;
+//     }
+// }
+
+// @media (min-width: 561px) and (max-width: 962px) {
+//     .homepagePlaylist {
+//         margin-left: 15px;
+//         width: calc(50% - 20px);
+//         margin-bottom: 10px;
+//     }
+
+//     .otherPlaylist {
+//         width: 50%;
+//         margin-bottom: 10px;
+//     }
+// }
+
+// @media (min-width: 965px) and (max-width: 1060px) {
+//     .homepagePlaylist {
+//         // margin-left: 15px;
+//         width: calc(50% - 30px);
+//         margin-bottom: 10px;
+//     }
+
+//     .otherPlaylist {
+//         width: 50%;
+//         margin-bottom: 10px;
+//     }
+// }
+
+
+
+// @media (min-width: 1061px) and (max-width: 1309px) {
+//     .homepagePlaylist {
+//         width: 36%;
+//         margin: 10px auto;
+//     }
+
+
+//     .otherPlaylist {
+//         width: 50%;
+//         margin-bottom: 10px;
+//     }
+
+//     .playlistImg {
+//         width: 70%;
+//     }
+// }
+
+// @media (max-width: 1309px) {
+//     .otherPlaylist {
+//         width: 33.3%;
+//         margin-bottom: 10px;
+//     }
+
+//     .card {
+//         height: 100%;
+
+//     }
+// }
+
+// @media (max-width: 800px) {
+//     .d-none {
+//         display: none;
+//     }
+
+//     .central-part {
+//         width: 100vw;
+//     }
+// }
+
+// @media (max-width: 563px) {
+//     .homepagePlaylist {
+//         width: 36%;
+//         margin: 10px auto;
+//     }
+
+//     .otherPlaylist {
+//         width: 100%;
+//     }
+// }
+
+// @media (max-width: 500px) {
+//     .homepagePlaylist {
+//         width: 100%;
+//         margin-left: 20px auto;
+//     }
+
+//     .otherPlaylist {
+//         width: 100%;
+//     }
+// }
