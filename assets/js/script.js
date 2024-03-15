@@ -5,6 +5,8 @@ let templateArtist = document.getElementsByTagName('template')[1]
 let cloneArtist = templateArtist.content.cloneNode(true);
 let templateAlbum = document.getElementsByTagName('template')[2]
 let cloneAlbum = templateAlbum.content.cloneNode(true);
+let templateResults = document.getElementsByTagName('template')[3];
+let cloneResults = templateResults.content.cloneNode(true);
 document.getElementById('templates-field').append(cloneHome.cloneNode(true))
 setTimeout(iterateLoader, 1000)
 
@@ -72,6 +74,7 @@ let playIcon = document.querySelector('#play-icon');
 let progressBar = document.querySelector('#myBar');
 let bar = document.querySelector('#myProgress')
 let currentDuration = document.querySelector('.current-duration');
+let totalDuration = document.querySelector('.total-duration');
 let volume = document.querySelector('.volume-bar')
 //variabii del footer
 let imgBar = document.querySelector('#img-bar')
@@ -138,18 +141,53 @@ function createDuration (duration){
 }
 
 //variabili searchbar
-// let searchInput = document.querySelector('.search-input')
-// let searchBtn = document.querySelector('.search-btn')
+let searchInput = document.querySelector('.search-input')
+let searchBtn = document.querySelector('.search-btn')
 
-// let queryParam = searchInput.value
+function search(queryParam){
+    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${queryParam}`, {
+        headers:{
+            'Content-type':'application/json'
+        }
+    }).then(res => res.json())
+    .then(results => {
+        results.data.forEach(result => {
+            
+            let cardResult = createClone('#card-song-search')
+            
+            let imgSearch = cardResult.querySelector('#img-search')
+            let titleSearch = cardResult.querySelector('#title-search')
+            let albumSearch = cardResult.querySelector('#album-search')
+            let artistSearch = cardResult.querySelector('#artist-search')
 
-// function search(queryParam){
-//     fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${queryParam}`, {
-//         headers:{
-//             'Content-type':'application/json'
-//         }
-//     }).then(res => res.json())
-// }
+            imgSearch.src = result.album.cover_small
+            titleSearch.innerText = result.title
+            albumSearch.innerText = result.album.title
+            artistSearch.innerText = result.artist.name
+
+            titleSearch.addEventListener('click', function(){
+                titleBar.innerText = result.title_short
+                imgBar.src = result.album.cover_small
+                authorBar.innerText = result.artist.name
+                totalDuration.innerText = createDuration(result.duration)
+                song.src = result.preview
+                playSong()
+            })
+
+            document.querySelector('.target-search').append(cardResult)
+        });
+
+
+    })
+}
+
+//appende la pagina dei risultati della ricerca
+function appendResults(){
+    let actualChild = document.getElementById('templates-field').getElementsByTagName('div')[0]
+    document.getElementById('templates-field').removeChild(actualChild)
+    document.getElementById('templates-field').append(cloneResults.cloneNode(true))
+    setTimeout(iterateLoader, 1000)
+}
 
 //riempie la pagina album
 function generateAlbum (albumId){
@@ -187,7 +225,6 @@ function generateAlbum (albumId){
             let songArtist = track.querySelector('.song-artist')
             let streaming = track.querySelector('.streaming')
             let songDuration = track.querySelector('.song-duration')
-            let totalDuration = document.querySelector('.total-duration')
             
             let appendSong = album.tracks.data[i]
             number.innerText = i+1
@@ -254,7 +291,6 @@ function generateArtist (artistId){
             let songTitle = topSong.querySelector('.song-title-artist')
             let streamingSong = topSong.querySelector('.streaming-artist')
             let durationSong = topSong.querySelector('.duration-artist')
-            let totalDuration = document.querySelector('.total-duration')
     
             imgSong.src = audio.album.cover_small
             songTitle.innerText = audio.title
@@ -297,7 +333,6 @@ function iterateLoader () {
         document.getElementsByClassName('loadHome')[i].addEventListener('click', appendHome);
     }
     
-    console.log(document.getElementsByClassName('loadAlbum'));
     for (let i = 0; i < document.getElementsByClassName('loadAlbum').length; i++) {
         let id = document.getElementsByClassName('loadAlbum')[i].albumId;
         document.getElementsByClassName('loadAlbum')[i].addEventListener('click', function() {
@@ -305,69 +340,14 @@ function iterateLoader () {
         });
         document.getElementsByClassName('loadAlbum')[i].addEventListener('click', appendAlbum);
     }
+
+    searchBtn.addEventListener('click', function(){
+        let queryParam = searchInput.value
+        search(queryParam)
+    })
+
+    searchBtn.addEventListener('click', appendResults)
+
 }
 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     let searchForm = document.querySelector('form');
-//     let sideDx = document.getElementById('ciaone');
-
-
-//     let container = document.querySelector('#home-content');
-
-
-//     let templateHTML = `   
-//     <form id="searchForm">
-//     <input type="text" id="searchInput" placeholder="Cerca traccia o album">
-//     <button type="submit">Cerca</button>
-// </form>`
-
-//     ;
-
-//     let i = 0;
-//     if (i % 5 === 0) {
-//         templateHTML += `</div><div class="row px-2">`;
-//         for (i = 1; i <= 50; i++) {
-//             templateHTML += `
-//             <div class="col-md-2 mb-4 px-5">
-//                 <div class="card">
-//                     <div class="card-body">
-//                         <p class="card-text">Card ${i}</p>
-//                     </div>
-//                 </div>
-//             </div>`;
-//         }
-//     }
-//     container.innerHTML = templateHTML;
-
-
-//     let templatesField = document.getElementById('templates-field');
-
-//     searchForm.addEventListener('click', function (event) {
-//         event.preventDefault();
-//         sideDx.style.display = 'none';
-
-//         templatesField.innerHTML = templateHTML;
-//     });
-// });
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     let searchForm = document.getElementById('searchForm');
-
-//     searchForm.addEventListener('submit', function (event) {
-//         event.preventDefault(); 
-
-//         let searchTerm = document.getElementById('searchInput').value.trim();
-
-//         let foundAlbumId = findAlbumId(searchTerm); 
-
-//         if (foundAlbumId) {
-//             window.location.href = `album.html?id=${foundAlbumId}#ciao1`;
-//         } else {
-
-//             console.log("Nessun risultato trovato per la ricerca.");
-//         }
-//     });
-// });
 
