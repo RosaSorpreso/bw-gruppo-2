@@ -15,17 +15,17 @@
 }
 
 .rettangolo {
-  background: linear-gradient(to right, #010101, #1d1d1d);
-  height: 250px;
+  background: linear-gradient(#000, #181818);
+  height: 230px;
   color: black;
   display: flex;
   align-items: center;
   text-align: center;
   margin-top: 50px;
+  margin: 10px;
 }
 .rettangolo .square {
   width: 70%;
-  margin-left: -55px;
 }
 .rettangolo .album {
   display: flex;
@@ -43,6 +43,13 @@
   border-radius: 20px;
   padding: 5px 20px 5px 20px;
   margin-bottom: 10px;
+}
+.rettangolo .album h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.rettangolo .album p:nth-child(1) {
+  font-weight: bold;
 }
 
 .imgBuonasera {
@@ -67,7 +74,6 @@
 
 .otherPlaylist .card {
   background-color: #171717;
-  height: 250px;
   margin-bottom: 10px;
   font-size: 0.8em;
 }
@@ -157,9 +163,6 @@
   .mobile {
     background-color: #010101;
     opacity: 0.9;
-  }
-  w-mobile {
-    width: 100%;
   }
 }
 @media screen and (min-width: 575px) and (max-width: 962px) {
