@@ -46,14 +46,16 @@ const fillAlbum = idAlbum => {
 function fillAllAlbums (){
     fillAlbum(75631032);
     fillAlbum(75631012);
+    fillAlbum(75635062);
+    fillAlbum(214959662);
+    fillAlbum(7113653);
+    fillAlbum(556764162);
     fillAlbum(75621062);
     fillAlbum(1335314);
     fillAlbum(75622062);
     fillAlbum(925108);
     fillAlbum(75625062);
     fillAlbum(76635062);
-    fillAlbum(75635062);
-    fillAlbum(214959662);
 }
 
 fillAllAlbums();
