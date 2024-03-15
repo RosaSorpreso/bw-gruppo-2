@@ -14,7 +14,7 @@
 <body>
     <div class="container-fluid text-white">
         <div class="row vh-100">
-            <div class="d-none d-md-block col-sm-3 bg-black ps-3">
+            <div class="d-none d-md-block col-sm-3 bg-black ps-3 z-3">
                 <div class="sticky-top z-3 bg-black">
                     <i class="bi bi-three-dots"></i>
                     <div class="d-flex flex-column gap-2 mt-1">
@@ -112,18 +112,20 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="rettangolo text-light">
-                            <div class="col-3"><img class="square" src="assets/imgs/main/image-6.jpg" alt=""></div>
-                            <div class="col-9 album">
-                                <p>ALBUM</p>
-                                
-                                <h2>VIOLA &#40;feat. Salmo&#41;</h2>
-                                <p>Fedez, Salmo</p>
-                                <p>Ascolta il nuovo singolo di Tedua e Salmo!</p>
-                                <div class="play d-flex">
-                                    <button type="button text-dark" class="btn btn-success">Play</button>
-                                    <button type="button" class="btn btn-dark">Save</button>
-                                    <i class="bi bi-three-dots"></i>
+                        <div class="d-none d-lg-block">
+                            <div class="rettangolo text-light">
+                                <div class="col-3"><img class="square" src="assets/imgs/main/image-6.jpg" alt=""></div>
+                                <div class="col-9 album">
+                                    <p>ALBUM</p>
+                                    
+                                    <h2>VIOLA &#40;feat. Salmo&#41;</h2>
+                                    <p>Fedez, Salmo</p>
+                                    <p>Ascolta il nuovo singolo di Tedua e Salmo!</p>
+                                    <div class="play d-flex">
+                                        <button type="button text-dark" class="btn btn-success">Play</button>
+                                        <button type="button" class="btn btn-dark">Save</button>
+                                        <i class="bi bi-three-dots"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -317,12 +319,11 @@
                                 <i class="bi bi-three-dots fs-3 m-2"></i>
                             </div>
                         </div>
-    
                         <div class="row py-3 mx-0 border-bottom">
                             <div class="col-1 text-center">#</div>
                             <div class="col-6">TITOLO</div>
-                            <div class="col-2 text-end">RIPRODUZIONI</div>
-                            <div class="col-3 text-end">TIME</div>
+                            <div class="col-2 text-end d-none-album">RIPRODUZIONI</div>
+                            <div class="col-3 text-end d-none-album">TIME</div>
                         </div>
                         <div class="target">
                             <template id="song">
@@ -332,8 +333,8 @@
                                         <div class="fw-semibold song-title"></div>
                                         <p class="gray-text song-artist loadArtist" artistId=""></p>
                                     </div>
-                                    <div class="col-2 text-end streaming"></div>
-                                    <div class="col-3 text-end song-duration"></div>
+                                    <div class="col-2 text-end streaming d-none-album"></div>
+                                    <div class="col-3 text-end song-duration d-none-album"></div>
                                     </div>
                                 </div>
                             </template>
