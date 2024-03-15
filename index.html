@@ -115,7 +115,10 @@
                             <div class="dropdown text-end">
                                 <a href="" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="assets/imgs/main/image-1.jpg" alt="mdo" class="rounded-circle me-2">
+                                    <input type="file" id="inputFile" accept="image/*" style="display: none;">
+<label for="inputFile">
+    <img src="" alt="non trovata bro" class="rounded-circle me-2">
+</label>
                                     Emanuel
                                     Tedesco
                                 </a>
@@ -529,7 +532,28 @@ inputs.forEach(input => {
 	input.addEventListener("focus", addcl);
 	input.addEventListener("blur", remcl);
 });
+// Aggiungi un event listener per il cambio di immagine
+document.getElementById('inputFile').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const imageUrl = e.target.result;
+
+        // Seleziona e aggiorna l'immagine nel dropdown
+        const dropdownImage = document.querySelector('.dropdown img');
+        dropdownImage.src = imageUrl;
+
+        // Seleziona e aggiorna l'immagine nel div con classe 'central-part'
+        const centralPartImage = document.querySelector('.central-part img');
+        centralPartImage.src = imageUrl;
+    };
+
+    reader.readAsDataURL(file);
+});
+
         </script>
+        <script src="assets/js/script.js"></script>
 </body>
 
 </html>
