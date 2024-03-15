@@ -270,14 +270,18 @@ function generateArtist (artistId){
     }).then(res => res.json())
     .then(artist => {
         let backgroungImg = document.querySelector('.bg-img')
-        let profileImg = document.querySelector('#img-artist-page')
         let artistName = document.querySelector('.artist-name-page')
+        let artistNameBottom = document.querySelector('.artist-name-page-bottom')
+        let profileImg = document.querySelector('#img-artist-page')
         let followers = document.querySelector('#followers')
 
         artistName.innerText = artist.name
+        artistNameBottom.innerText = `di ${artist.name}`
         followers.innerText = `${artist.nb_fan} ascoltatori mensili`
         profileImg.src = artist.picture_small
         backgroungImg.style.backgroundImage = `url('${artist.picture_big}')`
+        backgroungImg.style.backgroundRepeat = "no-repeat"
+        backgroungImg.style.backgroundSize = "cover"
     })
 
     fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=5`, {
@@ -287,18 +291,20 @@ function generateArtist (artistId){
     }).then(res => res.json())
     .then(songs => {
         console.log(songs);
-        songs.data.forEach(audio => {
+        songs.data.forEach((audio, index) => {
             let topSong = createClone('#popular-song')
     
             let imgSong = topSong.querySelector('.img-song-artist')
             let songTitle = topSong.querySelector('.song-title-artist')
             let streamingSong = topSong.querySelector('.streaming-artist')
             let durationSong = topSong.querySelector('.duration-artist')
+            let position = topSong.querySelector('.position-song')
     
             imgSong.src = audio.album.cover_small
             songTitle.innerText = audio.title
             streamingSong.innerText = audio.rank
             durationSong.innerText = createDuration(audio.duration)
+            position.innerText = index + 1
             
             songTitle.addEventListener('click', () => {
                 titleBar.innerText = audio.title
